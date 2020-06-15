@@ -1,0 +1,13 @@
+var factorial = require('factorial');
+var toDigits = require('to-digits');
+var _ = require('lodash');
+
+function isEqualToFactorialOfDigits(number) {
+return number === _.sum(toDigits(number).map(factorial));
+}
+
+var min = 10;
+var max = 100000;
+var digitFactorials = _.range(min, max).filter(isEqualToFactorialOfDigits);
+
+console.log(_.sum(digitFactorials));
